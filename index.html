@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="screenLayout">
+        <div class="headingScreen">
+            <p>Tic-Tac-Toe</p>
+            <p id="dec">play and enjoy and sometime use your brain to win</p>
+            <p id="playerTurn"></p>
+        </div>
+        
+    </div>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <div class="linesUnit">
+        <div class="Dlines">
+            <div class="line 048"></div>
+            <div class="line 246"></div>
+        </div>
+        <div class="Hlines">
+            <div class="line 012"></div>
+            <div class="line 345"></div>
+            <div class="line 678"></div>
+        </div>
+        <div class="Vlines">
+            <div class="line 036"></div>
+            <div class="line 147"></div>
+            <div class="line 258"></div>
+        </div>
+    </div>
+    <div class="resultContainer">
+        <div class="blurPanel"></div>
+        <div class="gameMenu">
+            <div class="lineBar">
+                <img src="./asset/winner.png" alt="🎆🎆🎆🎆🎆"/>
+            </div>
+            <p id="heading">the winner</p>
+            <p id="player"><span id="winner"></span></p>
+            <input type="button" onclick="resetGame()" value="Play Again"/>
+        </div>
+    </div>
+    <footer>
+        <script src="./script.js"></script>
+    </footer>
+    <section class="asset">
+        <audio controls autoplay loop>
+            <source src="./asset/tone.ogg" type="audio/ogg">
+            <source src="./asset/tone.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+</body>
+</html>
