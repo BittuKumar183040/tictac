@@ -41,19 +41,35 @@
 .headingScreen #playerTurn{
     background-color: rgb(251, 251, 251);
     display: inline-block;
-    padding:5px 50px;
-    border: 2px solid #c0c0c0;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    padding:5px 60px ;
     margin-top: 20px;
     font-weight: bolder;
     border-radius: 5px;
+    text-shadow:0 0 5px blue, 0 0 2px blue;
+    color: rgba(0, 0, 255, 1);
+    position: relative;
+    box-shadow: 2px 2px 2px black,inset 2px 2px 5px rgb(138, 136, 136);
 }
 .headingScreen #playerTurn::before{
-    content: "Player ";
+    content: "Player    ";
     opacity: 0.9;
     letter-spacing: 2px;
+    text-shadow:0 0 8px rgb(0, 0, 0), 0 0 3px rgb(0, 0, 0), 0 0 2px rgb(0, 0, 0);
+    color: rgb(255, 255, 255)
 }
-
+.headingScreen #playerTurn p{
+    display: inline-block;
+    font-size: 40px;
+    width: 80px;
+    padding: 20px 0;
+    background-color: rgb(251, 251, 251);
+    position: absolute;
+    right: -20px;
+    top:50%;
+    transform:translateY(-50%);
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px black;
+}
 /* box styling stats here--- */
 .playZone{
     flex-grow: 1;

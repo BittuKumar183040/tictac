@@ -7,6 +7,9 @@ const winnerDOM=document.querySelector("#winner")
 const PATTERN=[[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,4,6],[2,5,8],[3,4,5],[6,7,8]]
 let patternValue=[[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,4,6],[2,5,8],[3,4,5],[6,7,8]]
 
+const xStyle="text-shadow:0 0 5px rgb(136, 255, 0), 0 0 2px rgb(229, 255, 199);color: rgba(116, 216, 2, 1);"
+const oStyle="text-shadow:0 0 5px blue, 0 0 2px blue;color: rgba(0, 0, 255, 1);"
+
 const elementSame=()=>{
     let result=false;
     for(let x=0;x<PATTERN.length;x++){
@@ -40,14 +43,14 @@ const checkFound=(val, pos)=>{
         resultPanel.classList.add("gameMenuVisual")
         resultPanel.style.pointerEvents="all"
         winnerDOM.innerText="DRAW";
-        currentPlayerDOM.innerText="..."
+        currentPlayerDOM.innerHTML="..."
     }
     if(isFound){
         drawLine(isFound)
         resultPanel.classList.add("gameMenuVisual")
         resultPanel.style.pointerEvents="all"
         winnerDOM.innerText=player;
-        currentPlayerDOM.innerText="..."
+        currentPlayerDOM.innerHTML="..."
     }
 }
 
@@ -61,21 +64,18 @@ const alternateMark=()=>{
     return player
 }
 
-const xStyle="text-shadow:0 0 5px rgb(136, 255, 0), 0 0 2px rgb(229, 255, 199);color: rgba(116, 216, 2, 1);"
-const oStyle="text-shadow:0 0 5px blue, 0 0 2px blue;color: rgba(0, 0, 255, 1);"
-
 Array.from(button).forEach((e, idx)=>{
-    currentPlayerDOM.innerText="O"
+    currentPlayerDOM.innerHTML=`<p style="${oStyle}">O</p>`;
     e.addEventListener("click",(event)=>{
         if(e.classList[0]!="visited"){
             let val=alternateMark();
             e.classList.add("visited")
             if(val==="X"){
-                currentPlayerDOM.innerText="O"
+                currentPlayerDOM.innerHTML=`<p style="${oStyle}">O</p>`
                 event.target.innerHTML=`<p style="${xStyle}">${val}</p>`;
                 // player box styling 
             }else{
-                currentPlayerDOM.innerText="X"
+                currentPlayerDOM.innerHTML=`<p style="${xStyle}">X</p>`;
                 event.target.innerHTML=`<p style="${oStyle}">${val}</p>`;
             }
             move++
@@ -93,7 +93,7 @@ const resetGame=()=>{
     })
     player="O";
     move=0;
-    currentPlayerDOM.innerText="X"
+    currentPlayerDOM.innerHTML=`<p style="${xStyle}">X</p>`
     patternValue.forEach((array, idxOuter)=>{
         array.forEach((value, idxInner)=>{
             patternValue[idxOuter][idxInner]=PATTERN[idxOuter][idxInner]
