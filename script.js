@@ -4,11 +4,25 @@ const resultPanel=document.querySelector(".resultContainer")
 const currentPlayerDOM=document.querySelector("#playerTurn")
 const winnerDOM=document.querySelector("#winner")
 
+const OScore=document.querySelector("#scoreOCounter")
+const XScore=document.querySelector("#scoreXCounter")
+
 const PATTERN=[[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,4,6],[2,5,8],[3,4,5],[6,7,8]]
 let patternValue=[[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,4,6],[2,5,8],[3,4,5],[6,7,8]]
 
 const xStyle="text-shadow:0 0 5px rgb(136, 255, 0), 0 0 2px rgb(229, 255, 199);color: rgba(116, 216, 2, 1);"
 const oStyle="text-shadow:0 0 5px blue, 0 0 2px blue;color: rgba(0, 0, 255, 1);"
+
+
+XScore.innerHTML = localStorage.getItem("XScore")
+OScore.innerHTML = localStorage.getItem("OScore")
+
+const resetScore = () => {
+    localStorage.setItem("OScore", "0")
+    localStorage.setItem("XScore", "0")
+    OScore.innerHTML=0
+    XScore.innerHTML=0
+}
 
 const elementSame=()=>{
     let result=false;
@@ -28,6 +42,24 @@ const drawLine=(pos)=>{
             e.classList.add("active")
         }
     })
+}
+
+const increaseScoreCounter = (player) => {
+
+    const scores = {
+        X:XScore,
+        O:OScore
+    }
+
+    const playerScore = player + 'Score';
+    if(!localStorage.getItem(playerScore)){
+        localStorage.setItem(playerScore, '0')
+    }
+    console.log(playerScore, localStorage.getItem(playerScore));
+    let score = localStorage.getItem(playerScore);
+    score = parseInt(score) + 1;
+    localStorage.setItem(playerScore, score + "");
+    scores[player].innerHTML= score
 }
 
 const checkFound=(val, pos)=>{
@@ -50,6 +82,7 @@ const checkFound=(val, pos)=>{
         resultPanel.classList.add("gameMenuVisual")
         resultPanel.style.pointerEvents="all"
         winnerDOM.innerText=player;
+        increaseScoreCounter(player)
         currentPlayerDOM.innerHTML="..."
     }
 }

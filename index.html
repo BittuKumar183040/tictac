@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome | Tic Tac Toe</title>
     <link rel="icon" href="./asset/icon.png" type="image/png">
-    <link rel="stylesheet" href="style-min.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <script src="./script.js" defer></script>
 
 </head>
@@ -63,6 +63,16 @@
         </div>
     </div>
     <footer>
+        <div class="scoreItem" style="opacity: 0.8;">
+            <p class="O_style" id="playerTurn">O</p> |
+            <p class="O_style" id="scoreOCounter">0</p>
+        </div>
+        <button onclick="resetScore()" id="resetBtn">RESET</button>
+        <div class="scoreItem" style="opacity: 0.8;">
+            <p class="X_style" id="playerTurn">X</p> |
+            <p class="X_style" id="scoreXCounter">0</p>
+        </div>
+
     </footer>
     <section class="asset">
         <audio controls loop>
