@@ -1,0 +1,13 @@
+{
+    "name": "Tic Tac Toe",
+    "short_name": "XO",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "description": "Tic Tac Toe is an 2 player, which possibility to win, loss or draw.",
+    "icons": [{
+        "src": "asset/icon.png",
+        "sizes": "192x192",
+        "type": "asset/png"
+    }]
+}
